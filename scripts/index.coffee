@@ -13,8 +13,7 @@
 
 class PythonScript
     
-  pyScriptPath = '../python_dispatch.py'
-#__dirname + '/python_dispatch.py'
+  pyScriptPath = __dirname + '/python_dispatch.py'
   python_script = require('child_process').spawn('python', [pyScriptPath])
   python_script.stdout.on 'data', (data) =>
     receive_from_python(data.toString())
