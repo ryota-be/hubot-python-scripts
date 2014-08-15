@@ -28,5 +28,12 @@
   "engines": {
     "node": ">= 0.8.x",
     "npm": ">= 1.1.x"
-  }
+  },
+  "enabled_scripts": [ 
+    "lastfm.py",
+    "right_hubot.py",
+    "teamcity.py",
+    "jira_lookup.py",
+    "license_plate.py"
+  ]
 }
