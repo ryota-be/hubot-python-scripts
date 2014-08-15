@@ -66,9 +66,9 @@ class HubotDispatch(object):
     def load_scripts(self):
         prefix = '{root}{sep}'.format(root=os.path.dirname(os.path.realpath(__file__)), sep=os.sep)
         sys.path.append('{0}scripts'.format(prefix))
-        package = json.load(open('{0}packaging.json'.format(prefix)))
+        package = ["lastfm.py","right_hubot.py","teamcity.py","jira_lookup.py","license_plate.py"]
         self.scripts = []
-        for filename in package['enabled_scripts']:
+        for filename in package:
             modname = filename.replace('.py', '')
             modf = imp.find_module(modname)
             hubot_script._hear_regexes.clear()
