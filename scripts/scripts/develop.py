@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 import os
 
 from scripts.hubot_script import *
@@ -20,7 +21,11 @@ class Develop(HubotScript):
 		data = json.loads(response.read())
 		diff = (datetime.date.today() - datetime.date(2014,8,7)).days
 		s = "Today's attendance\n"
+		alert = 'Fill this sheet immediately\nhttps://docs.google.com/spreadsheets/d/1KJ18JLS6JbZT6RgzfjF7-i3y6S8tpkSlcgDAAb4Rtyk/edit#gid=0\n'
 		for row in data[4:]:
-			s += row.values()[0] + ':'
+			s += row.values()[0].split('@')[0] + ':'
 			s += row.values()[diff] + '\n'
+			if not row.values()[diff]:
+				alert += '@'+row.values()[0].split('@')[1]+': '
+		s += alert
 		return s
