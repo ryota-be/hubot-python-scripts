@@ -66,7 +66,7 @@ class HubotDispatch(object):
     def load_scripts(self):
         prefix = '{root}{sep}'.format(root=os.path.dirname(os.path.realpath(__file__)), sep=os.sep)
         sys.path.append('{0}scripts'.format(prefix))
-        package = ["lastfm.py","right_hubot.py","teamcity.py","jira_lookup.py","license_plate.py"]
+        package = ["lastfm.py","right_hubot.py","teamcity.py","jira_lookup.py","license_plate.py","develop.py"]
         self.scripts = []
         for filename in package:
             modname = filename.replace('.py', '')
