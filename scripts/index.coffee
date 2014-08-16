@@ -21,7 +21,6 @@ class PythonScript
   module.exports = (robot) ->
     @robot = robot
     robot.respond /(.*)/i, (msg) ->
-      msg.send(__dirname)
       newRegex = new RegExp("^[@]?#{robot.name}[:,]? ?(.*)", 'i')
       match = newRegex.exec msg.message.text
       send_to_python(match[1], msg.message.room, 'respond')
