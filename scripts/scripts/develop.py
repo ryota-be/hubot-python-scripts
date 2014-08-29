@@ -1,6 +1,5 @@
 # -*- coding:utf-8 -*-
 import os
-
 from scripts.hubot_script import *
 import urllib2
 import json
@@ -16,7 +15,7 @@ class Develop(HubotScript):
 
 	@respond('house()?.*')
 	def houseInfo(self,message,matches):
-		response = urllib2.urlopen('https://script.google.com/macros/s/AKfycbww_pq15yfa6reDG0HIKfAcZssf61Vrq9DNJuVk87XD9_QNICI/exec')
+		response = urllib2.urlopen('https://script.google.com/macros/s/AKfycbxLLbJHEG6QbTuzztSp5CPca-1qySoN2OD1rkTRD1zJ50dSfgI/exec')
 		data = []
 		data = json.loads(response.read())
 		today = datetime.date.today()
