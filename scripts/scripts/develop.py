@@ -15,7 +15,7 @@ class Develop(HubotScript):
 
 	@respond('house()?.*')
 	def houseInfo(self,message,matches):
-		response = urllib2.urlopen('https://script.google.com/macros/s/AKfycbxLLbJHEG6QbTuzztSp5CPca-1qySoN2OD1rkTRD1zJ50dSfgI/exec')
+		response = urllib2.urlopen('https://script.google.com/macros/s/AKfycbz53s9DehPewIBvUlx-iNyZzEeWB_be707gP8i98r-FoBb3G-7w/exec')
 		data = []
 		data = json.loads(response.read())
 		today = datetime.date.today()
@@ -34,3 +34,7 @@ class Develop(HubotScript):
 			s += '\n'
 		s += alert
 		return s
+
+	@respond('gomi()?.*')
+	def garbage(self,message,matches):
+		return '古紙:水\n容器包装・プラスチック:水\n燃やすゴミ:火金\n金属・陶器・ガラスゴミ:第２・第４土'
