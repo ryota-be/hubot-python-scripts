@@ -21,7 +21,7 @@ class Develop(HubotScript):
 		today = datetime.date.today()
 		day_key = str(today.year).zfill(4)+'/'+str(today.month).zfill(2)+'/'+str(today.day).zfill(2)
 		s = day_key + " attendance\n"
-		alert = 'Fill this sheet immediately\nhttps://docs.google.com/spreadsheets/d/1KJ18JLS6JbZT6RgzfjF7-i3y6S8tpkSlcgDAAb4Rtyk/edit#gid=0\n'
+		alert = 'Fill this sheet immediately\nhttps://docs.google.com/spreadsheets/d/1KJ18JLS6JbZT6RgzfjF7-i3y6S8tpkSlcgDAAb4Rtyk/edit#gid=745264158\n'
 		for key in data[0].keys():
 			if day_key in key:
 				day_key = key
