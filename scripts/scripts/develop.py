@@ -5,6 +5,7 @@ import urllib2
 import json
 import datetime
 class Develop(HubotScript):
+	keymember = []
 	@respond('message( )?.*')
 	def message(self, message, matches):
 		return str(message)#{u'message': u'message', u'type': u'respond', u'room': u'bot_dev'}
@@ -38,3 +39,19 @@ class Develop(HubotScript):
 	@respond('gomi()?.*')
 	def garbage(self,message,matches):
 		return '古紙:水\n容器包装・プラスチック:水\n燃やすゴミ:火金\n金属・陶器・ガラスゴミ:第２・第４土'
+
+	@respond('keydef [^ ]+ [^ ]+ [^ ]+ [^ ]+')
+	def keydef(self,message,matches):
+		Develop.keymember = []
+		for i in range(1,5):
+			Develop.keymember.append(message.split(' ')[i])
+		return 'ok'
+
+	@respond('key')
+	def keyshow(self,message,matches):
+		return str(Develop.keymember)
+
+	@respond('key [^ ]+ [^ ]+')
+	def keyChange(self,message,matches):
+		Develop.keymember[Develop.keymember.index(message.split(' ')[1])] = message.split(' ')[2]
+		return 'ok'
