@@ -55,3 +55,16 @@ class Develop(HubotScript):
 	def keyChange(self,message,matches):
 		Develop.keymember[Develop.keymember.index(message.split(' ')[1])] = message.split(' ')[2]
 		return 'ok'
+
+	@respond('blog()?.*')
+	def blogShow(self,message,matches):
+		today = datetime.date.today()
+		weekday = today.weekday()
+		ret = str(weekday)
+		i = weekday
+		for j in range(0,7):
+			if i > 6:
+				i = 0
+			ret += str(i)
+		return ret
+
