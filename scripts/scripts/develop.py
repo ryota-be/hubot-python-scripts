@@ -58,13 +58,14 @@ class Develop(HubotScript):
 
 	@respond('blog()?.*')
 	def blogShow(self,message,matches):
+		dic = [("Mon:","滝川"),("Tue:","火曜日も滝川"),("Wed:","水曜日の滝川"),("Thu:","木曜日の人"),("Fri:","金曜日の滝川"),("Sat:","土曜日てみー"),("Sun:","にちようびてみー")]
 		today = datetime.date.today()
-		weekday = today.weekday()
-		ret = str(weekday)
-		i = weekday
-		for j in range(0,7):
+		i = today.weekday()
+		ret = ""
+		for j in range(0,6):
 			if i > 6:
 				i = 0
-			ret += str(i)
+			ret += dic[i][0] + dic[i][1] + '\n'
+			i += 1
 		return ret
 
